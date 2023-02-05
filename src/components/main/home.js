@@ -36,7 +36,7 @@ export default function Home() {
                 <Heading size={sizes.title}>
                     Freshly Me
                 </Heading>
-                <Spacer></Spacer>
+                <Spacer />
                 <IconButton variant="ghost" size={sizes.title} onClick={toggleColorMode} colorScheme='transparent' icon={switchIcon} />
             </HStack>
             <Box mb={margin}>
