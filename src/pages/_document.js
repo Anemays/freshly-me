@@ -8,6 +8,8 @@ export default class Document extends NextDocument {
   render() {
     return (
       <Html lang='en'>
+        <head dangerouslySetInnerHTML={{ __html: '\n<!--\n\tNama: Raka Bintang Pratama\n\tNIM: 10122301\n\tKelas: IF-8\n-->' }}>
+        </head>
         <Head />
         <body>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
