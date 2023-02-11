@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Home</title>
+        <title>FreshlyMe - Online Juice Shop</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
