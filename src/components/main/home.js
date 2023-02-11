@@ -1,3 +1,5 @@
+import Settings from '../../components/settings'
+
 import {
     InputGroup,
     Input,
@@ -23,54 +25,65 @@ export default function Home() {
         <FontAwesomeIcon icon={faSun} />,
         <FontAwesomeIcon icon={faMoon} />
     )
-    const sizes = {
-        title: ['md', 'lg', 'lg'],
-        heading: ['sm', 'md', 'md'],
-        button: ['md', 'lg', 'lg'],
-    }
-    const margin = ['12px', '16px', '16px']
     
     return (
         <>
-            <HStack mb={margin}>
-                <Heading size={sizes.title}>
+            <HStack mb={Settings.margin}>
+                <Heading size={Settings.sizes.title}>
                     Freshly Me
                 </Heading>
                 <Spacer />
-                <IconButton variant="ghost" size={sizes.title} onClick={toggleColorMode} colorScheme='transparent' icon={switchIcon} />
+                <IconButton variant="ghost" size={Settings.sizes.title} onClick={toggleColorMode} colorScheme='transparent' icon={switchIcon} />
             </HStack>
-            <Box mb={margin}>
-                <Heading size={sizes.heading} mb={margin}>
-                    Choose Your Favorite Juice
+            <Box mb={Settings.margin}>
+                <Heading fontWeight='normal' size={Settings.sizes.extra} mb={Settings.margin}>
+                    Pilih Jus Favorit Anda
                 </Heading>
-                <Flex mb={margin}>
-                    <InputGroup size={sizes.heading}>
-                        <Input placeholder='Search Your Favorite Juice' />
+                <Flex mb={Settings.margin}>
+                    <InputGroup size={Settings.sizes.extra}>
+                        <Input placeholder='Cari Jus Favorit Anda' p='4px' pl='8px' />
                         <InputRightAddon children={
-                            <IconButton variant="link" colorScheme='transparent' size={sizes.button} icon={
+                            <IconButton variant="link" colorScheme='transparent' size={Settings.sizes.button} icon={
                                 <FontAwesomeIcon icon={faSearch} />
                             } />
                         } />
                     </InputGroup>
                 </Flex>
                 <HStack>
-                    <IconButton colorScheme='red' size={sizes.button} icon={
-                        'Apple'
-                    } />
-                    <IconButton colorScheme='orange' size={sizes.button} icon={
-                        'Mango'
-                    } />
-                    <IconButton colorScheme='purple' size={sizes.button} icon={
-                        'Grape'
-                    } />
-                    <IconButton colorScheme='green' size={sizes.button} icon={
-                        'Avocado'
-                    } />
+                    <Button colorScheme='red' size={Settings.sizes.button}>
+                        Apel
+                    </Button>
+                    <Button colorScheme='orange' size={Settings.sizes.button}>
+                        Mangga
+                    </Button>
+                    <Button colorScheme='purple' size={Settings.sizes.button}>
+                        Anggur
+                    </Button>
+                    <Button colorScheme='green' size={Settings.sizes.button}>
+                        Alpukat
+                    </Button>
+                    <Button colorScheme='yellow' size={Settings.sizes.button}>
+                        Jeruk
+                    </Button>
                 </HStack>
             </Box>
+
             {/* Juice Banner */}
+            <Heading fontWeight='normal' size={Settings.sizes.large} mt='24px' mb={Settings.margin}>
+                Populer
+            </Heading>
             <Center>
                 <Image src='#' fallbackSrc='https://via.placeholder.com/320' />
+            </Center>
+
+            {/* Juice Banner */}
+            <Heading fontWeight='normal' size={Settings.sizes.large} mt='24px' mb={Settings.margin}>
+                Rekomendasi
+            </Heading>
+            <Center>
+                <HStack spacing='12px' overflow>
+                    <Image src='#' fallbackSrc='https://via.placeholder.com/220' />
+                </HStack>
             </Center>
         </>
     )

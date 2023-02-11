@@ -1,10 +1,10 @@
 import Page_Home from '../components/main/home'
 import Page_Catalog from '../components/main/catalog'
-import Page_Details from '../components/main/details'
+import Page_Cart from '../components/main/cart'
 import Page_Profile from '../components/main/profile'
 
 import Head from 'next/head'
-import { Tabs, TabList, TabPanels, Tab, TabPanel, Box, useColorModeValue } from '@chakra-ui/react'
+import { Tabs, TabList, TabPanels, Tab, TabPanel, Box, useColorModeValue, Text, Spacer } from '@chakra-ui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGlassWater, faHome, faSearch, faUser } from '@fortawesome/free-solid-svg-icons'
 
@@ -30,16 +30,27 @@ export default function Home() {
               <Page_Catalog />
             </TabPanel>
             <TabPanel>
-              <Page_Details />
+              <Page_Cart />
             </TabPanel>
             <TabPanel>
               <Page_Profile />
             </TabPanel>
           </TabPanels>
+          <Spacer minH='7vh' />
         </Box>
 
         {/* Footer */}
-        <TabList h='7vh' maxH="7vh" p='3px'>
+        <TabList
+          h='7vh'
+          maxH="7vh"
+          p='3px'
+          position='fixed'
+          bottom='0px'
+          w='100%'
+          bgColor=''
+          backdropFilter='auto'
+          backdropContrast='80%'
+        >
           <Tab>
             <FontAwesomeIcon icon={faHome} />
           </Tab>
