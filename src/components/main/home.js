@@ -36,7 +36,7 @@ export default function Home() {
         <FontAwesomeIcon icon={faMoon} />
     )
     const popularItem = Products[4]
-    const recommendedItem = Products[0]
+    const recommendedItem = Products[8]
     
     return (
         <>
@@ -48,7 +48,7 @@ export default function Home() {
                 <IconButton variant="ghost" size={Settings.sizes.title} onClick={toggleColorMode} colorScheme='transparent' icon={switchIcon} />
             </HStack>
             <Box align='center'>
-                <Box mb={Settings.margin} align='left' w={['100%', '75%', '60%']}>
+                <Box mb={Settings.margin} align='left' w={['100%', '75%', '50%']}>
                     <Heading fontWeight='normal' size={Settings.sizes.extra} mb={Settings.margin}>
                         Pilih Jus Favorit Anda
                     </Heading>
@@ -102,7 +102,7 @@ export default function Home() {
             </Box>
 
             <Box align='center'>
-                <Box align='left' w={['100%', '75%', '60%']}>
+                <Box align='left' w={['100%', '75%', '50%']}>
                     {/* Juice Banner */}
                     <Heading fontWeight='normal' size={Settings.sizes.large} mt='24px' mb={Settings.margin}>
                         Populer

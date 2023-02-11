@@ -2,7 +2,7 @@ import CardProduct from '../layout/cardProduct'
 import Settings from '../../components/settings'
 import { Products } from '../../data/data'
 
-import { Box, Button, Card, CardBody, CardFooter, Heading, HStack, IconButton, Image, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Spacer, Stack, Text, useColorMode, useColorModeValue, useDisclosure, VStack } from "@chakra-ui/react"
+import { Box, Button, Card, CardBody, CardFooter, Heading, HStack, IconButton, Image, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Spacer, Stack, Text, useColorMode, useColorModeValue, useDisclosure, VStack } from "@chakra-ui/react"
 import { faMoon, faSearch, faSun } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useState } from 'react'
@@ -18,6 +18,7 @@ export default function Catalog() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [selectedItem, setSelectedItem] = useState(-1)
     const [selectedAmount, setSelectedAmount] = useState(1)
+    const [isSearchHidden, setSearchHidden] = useState(true)
 
     return (
         <>
@@ -26,9 +27,10 @@ export default function Catalog() {
                     Cari Jus
                 </Heading>
                 <Spacer />
+                <Input placeholder='Cari...' w={['40%', '50%', '6   0%']} hidden={isSearchHidden}/>
                 <IconButton variant="link" colorScheme='transparent' size={Settings.sizes.button} icon={
                     <FontAwesomeIcon icon={faSearch} />
-                } />
+                } onClick={(e) => setSearchHidden(!isSearchHidden)} />
                 <IconButton variant="ghost" size={Settings.sizes.title} onClick={toggleColorMode} colorScheme='transparent' icon={switchIcon} />
             </HStack>
 
@@ -82,7 +84,7 @@ export default function Catalog() {
                             <Button variant='ghost' colorScheme='blue' mr={3} p='0' onClick={() => setSelectedAmount(selectedAmount <= 0 ? 0 : selectedAmount - 1 )}>
                                 -
                             </Button>
-                            <Text color='yellow'>
+                            <Text color={useColorModeValue('yellow.500', 'yellow')}>
                                 {/*data[selectedItem] ? data[selectedItem].amount : 0*/}
                                 {selectedAmount}
                             </Text>

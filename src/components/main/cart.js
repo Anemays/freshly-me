@@ -22,10 +22,10 @@ export default function Details() {
             <HStack mb={Settings.margin}>
                 <Heading size='md'>Pesanan Anda</Heading>
                 <Spacer />
-                <IconButton variant="ghost" size={Settings.sizes.title} onClick={toggleColorMode} colorScheme='transparent' icon={switchIcon} />
+    usecolormodeval            <IconButton variant="ghost" size={Settings.sizes.title} onClick={toggleColorMode} colorScheme='transparent' icon={switchIcon} />
             </HStack>
             <Box align='center'>
-                <Card variant='outline' w={['100%', '75%', '60%']}>
+                <Card variant='outline' w={['100%', '75%', '50%']}>
                     <CardBody align='left' justifyContent>
                         <VStack divider={<StackDivider />} spacing='4' align='left'>
                             {
@@ -47,7 +47,7 @@ export default function Details() {
                                                 </Text>
                                                 <Spacer />
                                                 <Box>
-                                                    <Text color='yellow'>
+                                                    <Text color={useColorModeValue('yellow.500', 'yellow')}>
                                                         x{item.amount}
                                                     </Text>
                                                 </Box>

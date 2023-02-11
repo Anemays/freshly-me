@@ -1,6 +1,6 @@
 import Settings from '../settings'
 
-import { Box, Button, Card, CardBody, CardFooter, Flex, Heading, HStack, Image, Spacer, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Card, CardBody, CardFooter, Flex, Heading, HStack, Image, Spacer, Text, useColorModeValue, VStack } from "@chakra-ui/react";
 import { StarIcon } from '@chakra-ui/icons';
 
 
@@ -54,7 +54,7 @@ export default function CardList({ data, index, onOpen, setSelectedItem, setSele
                                 <Text fontSize='17px' p='6px'>
                                     <Text as='span' color='orange'>Rp{price.toLocaleString('id-ID')}</Text>,00
                                 </Text>
-                                <Text fontSize='17px' p='6px' color='yellow'>
+                                <Text fontSize='17px' p='6px' color={useColorModeValue('yellow.500', 'yellow')}>
                                     x{amount}
                                 </Text>
                                 <Button colorScheme='green' size={Settings.sizes.button} onClick={(e) => { onOpen(); setSelectedItem(index); setSelectedAmount(amount) }}>
