@@ -1,6 +1,6 @@
 import { Button, Card, CardBody, Heading, HStack, Image, Spacer, Stack, Text } from "@chakra-ui/react";
 
-export default function cardHighlight({ item}) {
+export default function cardHighlight({ item }) {
     
     return (
         <Card minW={['100%', '50%']} maxW={['100%', '50%']}>
@@ -19,8 +19,8 @@ export default function cardHighlight({ item}) {
                         {item.description}
                     </Text>
                     <HStack>
-                        <Text color='orange' fontSize='xl'>
-                            Rp{item.price.toLocaleString('id-ID')},00
+                        <Text fontSize='xl'>
+                            <Text as='span' color='orange'>Rp{item.price.toLocaleString('id-ID')}</Text>,00
                         </Text>
                         <Spacer />
                         <Button variant='solid' colorScheme='green'>

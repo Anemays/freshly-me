@@ -1,4 +1,5 @@
 import Settings from '../../components/settings'
+import { Products } from '../../data/data'
 
 import { Box, Button, Card, CardBody, CardHeader, Heading, HStack, IconButton, Image, Spacer, Stack, StackDivider, Text, useColorMode, useColorModeValue, VStack } from "@chakra-ui/react";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
@@ -12,54 +13,11 @@ export default function Details() {
         <FontAwesomeIcon icon={faMoon} />
     )
     const orders = [
-        {
-            name: 'Coffee',
-            description: 'Just a cup of coffee',
-            price: 12000,
-            amount: 2,
-        },
-        {
-            name: 'Name',
-            description: 'Description',
-            price: 25000,
-            amount: 1,
-        },
-        {
-            name: 'Name',
-            description: 'Description',
-            price: 25000,
-            amount: 1,
-        },
-        {
-            name: 'Name',
-            description: 'Description',
-            price: 25000,
-            amount: 1,
-        },
-        {
-            name: 'Name',
-            description: 'Description',
-            price: 25000,
-            amount: 1,
-        },
-        {
-            name: 'Name',
-            description: 'Description',
-            price: 25000,
-            amount: 1,
-        },
-        {
-            name: 'Name',
-            description: 'Description',
-            price: 25000,
-            amount: 1,
-        },
-        {
-            name: 'Name',
-            description: 'Description',
-            price: 25000,
-            amount: 1,
-        },
+        Products[0],
+        Products[1],
+        Products[1],
+        Products[1],
+        Products[1],
     ]
 
     return (
@@ -81,8 +39,8 @@ export default function Details() {
                                                 {item.name}
                                             </Heading>
                                             <Spacer />
-                                            <Text color='orange'>
-                                                Rp{item.price.toLocaleString('id-ID')},00
+                                            <Text>
+                                                <Text as='span' color='orange'>Rp{item.price.toLocaleString('id-ID')}</Text>,00
                                             </Text>
                                         </HStack>
                                         <HStack align='top'>
@@ -100,6 +58,9 @@ export default function Details() {
                                 )
                             })
                         }
+                        <Box>
+                            Total: <Text as='span' color='orange'>Rp{(150000).toLocaleString('id-ID')}</Text>,00
+                        </Box>
                     </VStack>
                 </CardBody>
             </Card>

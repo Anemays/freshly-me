@@ -50,10 +50,10 @@ export default function CardList({ data, index, onOpen, setSelectedItem, setSele
                             
                             <CardFooter p='4px'>
                                 <Spacer />
-                                <Text fontSize='18px' p='6px' color='orange'>
-                                    Rp{price.toLocaleString('id-ID')},00
+                                <Text fontSize='17px' p='6px'>
+                                    <Text as='span' color='orange'>Rp{price.toLocaleString('id-ID')}</Text>,00
                                 </Text>
-                                <Text fontSize='18px' p='6px' color=''>
+                                <Text fontSize='17px' p='6px' color='yellow'>
                                     x{amount}
                                 </Text>
                                 <Button colorScheme='green' size={Settings.sizes.button} onClick={(e) => { onOpen(); setSelectedItem(index); setSelectedAmount(amount) }}>

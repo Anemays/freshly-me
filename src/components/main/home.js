@@ -1,5 +1,6 @@
 import Settings from '../../components/settings'
 import CardHighlight from '../../components/layout/cardHighlight'
+import { Products } from '../../data/data'
 
 import {
     InputGroup,
@@ -33,26 +34,8 @@ export default function Home() {
         <FontAwesomeIcon icon={faSun} />,
         <FontAwesomeIcon icon={faMoon} />
     )
-    const popularItem = {
-        imageLink: 'https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60',
-        imageAlt: 'Kopi',
-        name: 'Kopi',
-        description: 'Secangkir kopi',
-        price: 12000,
-        rating: 4,
-        reviewCount: 10,
-        amount: 1,
-    }
-    const recommendedItem = {
-        imageLink: 'https://via.placeholder.com/150',
-        imageAlt: 'Nama',
-        name: 'Nama',
-        description: 'Deskripsi',
-        price: 25000,
-        rating: 5,
-        reviewCount: 100,
-        amount: 1,
-    }
+    const popularItem = Products[0]
+    const recommendedItem = Products[1]
     
     return (
         <>

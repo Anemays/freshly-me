@@ -1,5 +1,6 @@
 import CardProduct from '../layout/cardProduct'
 import Settings from '../../components/settings'
+import { Products } from '../../data/data'
 
 import { Box, Button, Card, CardBody, CardFooter, Heading, HStack, IconButton, Image, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Spacer, Stack, Text, useColorMode, useColorModeValue, useDisclosure, VStack } from "@chakra-ui/react"
 import { faMoon, faSearch, faSun } from "@fortawesome/free-solid-svg-icons"
@@ -16,88 +17,7 @@ export default function Catalog() {
     )
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [selectedItem, setSelectedItem] = useState(-1)
-    const [data, setData] = useState([
-        {
-            imageLink: 'https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60',
-            imageAlt: 'Kopi',
-            name: 'Kopi',
-            description: 'Secangkir kopi',
-            price: 12000,
-            rating: 4,
-            reviewCount: 10,
-            amount: 1,
-        },
-        {
-            imageLink: 'https://via.placeholder.com/150',
-            imageAlt: 'Nama',
-            name: 'Nama',
-            description: 'Deskripsi',
-            price: 25000,
-            rating: 5,
-            reviewCount: 100,
-            amount: 1,
-        },
-        {
-            imageLink: 'https://via.placeholder.com/150',
-            imageAlt: 'Nama',
-            name: 'Nama',
-            description: 'Deskripsi',
-            price: 25000,
-            rating: 5,
-            reviewCount: 100,
-            amount: 1,
-        },
-        {
-            imageLink: 'https://via.placeholder.com/150',
-            imageAlt: 'Nama',
-            name: 'Nama',
-            description: 'Deskripsi',
-            price: 25000,
-            rating: 5,
-            reviewCount: 100,
-            amount: 1,
-        },
-        {
-            imageLink: 'https://via.placeholder.com/150',
-            imageAlt: 'Nama',
-            name: 'Nama',
-            description: 'Deskripsi',
-            price: 25000,
-            rating: 5,
-            reviewCount: 100,
-            amount: 1,
-        },
-        {
-            imageLink: 'https://via.placeholder.com/150',
-            imageAlt: 'Nama',
-            name: 'Nama',
-            description: 'Deskripsi',
-            price: 25000,
-            rating: 5,
-            reviewCount: 100,
-            amount: 1,
-        },
-        {
-            imageLink: 'https://via.placeholder.com/150',
-            imageAlt: 'Nama',
-            name: 'Nama',
-            description: 'Deskripsi',
-            price: 25000,
-            rating: 5,
-            reviewCount: 100,
-            amount: 1,
-        },
-        {
-            imageLink: 'https://via.placeholder.com/150',
-            imageAlt: 'Nama',
-            name: 'Nama',
-            description: 'Deskripsi',
-            price: 25000,
-            rating: 5,
-            reviewCount: 100,
-            amount: 1,
-        },
-    ])
+    const [data, setData] = useState(Products)
     const [selectedAmount, setSelectedAmount] = useState(1)
 
     return (
@@ -156,14 +76,14 @@ export default function Catalog() {
                             {data[selectedItem] ? data[selectedItem].description : ''}
                         </Text>
                         <HStack>
-                            <Text color='orange'>
-                                Rp{data[selectedItem] ? data[selectedItem].price.toLocaleString('id-ID') : 0},00
+                            <Text>
+                                <Text as='span' color='orange'>Rp{data[selectedItem] ? data[selectedItem].price.toLocaleString('id-ID') : 0}</Text>,00
                             </Text>
                             <Spacer />
                             <Button variant='ghost' colorScheme='blue' mr={3} p='0' onClick={() => setSelectedAmount(selectedAmount <= 0 ? 0 : selectedAmount - 1 )}>
                                 -
                             </Button>
-                            <Text>
+                            <Text color='yellow'>
                                 {/*data[selectedItem] ? data[selectedItem].amount : 0*/}
                                 {selectedAmount}
                             </Text>
