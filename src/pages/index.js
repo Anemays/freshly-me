@@ -7,12 +7,17 @@ import Head from 'next/head'
 import { Tabs, TabList, TabPanels, Tab, TabPanel, Box, useColorModeValue, Text, Spacer } from '@chakra-ui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGlassWater, faHome, faSearch, faUser } from '@fortawesome/free-solid-svg-icons'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
   const gradient = {
     primary: useColorModeValue('white', '#1a202c'),
     almostPrimary: useColorModeValue('#f9f9f9', '#2d3748'),
   }
+  const [tabIndex, setTabIndex] = useState(0)
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [tabIndex])
   return (
     <>
       <Head>
@@ -20,7 +25,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Tabs isFitted variant='soft-rounded' colorScheme='green' maxH="100vh">
+      <Tabs onChange={(index) => setTabIndex(index)} isFitted variant='soft-rounded' colorScheme='green' maxH="100vh">
         <Box h="93vh" maxH="93vh" bgGradient={`linear(to-b, ${gradient.primary}, ${gradient.almostPrimary}})`}>
           <TabPanels>
             <TabPanel>
