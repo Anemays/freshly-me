@@ -145,6 +145,13 @@ export default function Catalog() {
                     </ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
+                        <Image
+                            boxSize='100%'
+                            objectFit='cover'
+                            maxW={{ base: '100%', sm: '100px' }}
+                            src={data[selectedItem] ? data[selectedItem].imageLink : ''}
+                            alt={data[selectedItem] ? data[selectedItem].imageAlt : ''}
+                        />
                         <Text mb='1rem'>
                             {data[selectedItem] ? data[selectedItem].description : ''}
                         </Text>

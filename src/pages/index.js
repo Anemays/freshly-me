@@ -42,6 +42,7 @@ export default function Home() {
         {/* Footer */}
         <TabList
           h='7vh'
+          minH='40px'
           maxH="7vh"
           p='3px'
           position='fixed'

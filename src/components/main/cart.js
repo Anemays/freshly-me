@@ -106,7 +106,7 @@ export default function Details() {
             <Spacer />
             <Button position='fixed'
                 bottom='80px'
-                right={['16px', '84px', '84px', '84px', '120px']}
+                right='16px'
                 zIndex={2}
                 size='lg'
                 colorScheme='green'
