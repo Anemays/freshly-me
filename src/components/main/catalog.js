@@ -17,7 +17,6 @@ export default function Catalog() {
     )
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [selectedItem, setSelectedItem] = useState(-1)
-    const [data, setData] = useState(Products)
     const [selectedAmount, setSelectedAmount] = useState(1)
 
     return (
@@ -35,7 +34,7 @@ export default function Catalog() {
 
             <VStack>
                 {
-                    data.map((item, index) => {
+                    Products.map((item, index) => {
                         return (
                             <CardProduct data={item} index={index} onOpen={onOpen} setSelectedItem={setSelectedItem} setSelectedAmount={setSelectedAmount} />
                         )
@@ -48,18 +47,18 @@ export default function Catalog() {
                 <ModalContent>
                     <ModalHeader>
                         <Box display='flex' mt='2' alignItems='center'>
-                            {data[selectedItem] ?  data[selectedItem].name : ''}
+                            {Products[selectedItem] ?  Products[selectedItem].name : ''}
                             <Spacer />
                             {Array(5)
                                 .fill('')
                                 .map((_, i) => (
                                     <StarIcon
                                         key={i}
-                                        color={data[selectedItem] ? (i < data[selectedItem].rating ? 'yellow.500' : 'gray.300') : 'gray.300'}
+                                        color={Products[selectedItem] ? (i < Products[selectedItem].rating ? 'yellow.500' : 'gray.300') : 'gray.300'}
                                     />
                                 ))}
                             <Box as='span' ml='2' fontSize='sm'>
-                                {data[selectedItem] ? data[selectedItem].reviewCount : 0} reviews
+                                {Products[selectedItem] ? Products[selectedItem].reviewCount : 0} reviews
                             </Box>
                         </Box>
                     </ModalHeader>
@@ -68,16 +67,16 @@ export default function Catalog() {
                         <Image
                             boxSize='100%'
                             objectFit='cover'
-                            maxW={{ base: '100%', sm: '100px' }}
-                            src={data[selectedItem] ? data[selectedItem].imageLink : ''}
-                            alt={data[selectedItem] ? data[selectedItem].imageAlt : ''}
+                            maxW={{ base: '100%', sm: '100px', md: '100%', lg: '100%' }}
+                            src={Products[selectedItem] ? Products[selectedItem].imageLink : ''}
+                            alt={Products[selectedItem] ? Products[selectedItem].imageAlt : ''}
                         />
-                        <Text mb='1rem'>
-                            {data[selectedItem] ? data[selectedItem].description : ''}
+                        <Text mt='1rem' textAlign='justify'>
+                            {Products[selectedItem] ? Products[selectedItem].description : ''}
                         </Text>
                         <HStack>
                             <Text>
-                                <Text as='span' color='orange'>Rp{data[selectedItem] ? data[selectedItem].price.toLocaleString('id-ID') : 0}</Text>,00
+                                <Text as='span' color='orange'>Rp{Products[selectedItem] ? Products[selectedItem].price.toLocaleString('id-ID') : 0}</Text>,00
                             </Text>
                             <Spacer />
                             <Button variant='ghost' colorScheme='blue' mr={3} p='0' onClick={() => setSelectedAmount(selectedAmount <= 0 ? 0 : selectedAmount - 1 )}>

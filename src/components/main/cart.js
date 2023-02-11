@@ -12,13 +12,10 @@ export default function Details() {
         <FontAwesomeIcon icon={faSun} />,
         <FontAwesomeIcon icon={faMoon} />
     )
-    const orders = [
-        Products[0],
-        Products[1],
-        Products[1],
-        Products[1],
-        Products[1],
-    ]
+    const orders = Products
+    const totalPrice = orders.reduce((total, item) => {
+        return total + item.price
+    }, 0)
 
     return (
         <>
@@ -27,49 +24,50 @@ export default function Details() {
                 <Spacer />
                 <IconButton variant="ghost" size={Settings.sizes.title} onClick={toggleColorMode} colorScheme='transparent' icon={switchIcon} />
             </HStack>
-            <Card variant='outline'>
-                <CardBody>
-                    <VStack divider={<StackDivider />} spacing='4' align='left'>
-                        {
-                            orders.map((item, index) => {
-                                return (
-                                    <Box>
-                                        <HStack>
-                                            <Heading size='xs' textTransform='uppercase'>
-                                                {item.name}
-                                            </Heading>
-                                            <Spacer />
-                                            <Text>
-                                                <Text as='span' color='orange'>Rp{item.price.toLocaleString('id-ID')}</Text>,00
-                                            </Text>
-                                        </HStack>
-                                        <HStack align='top'>
-                                            <Text pt='2' fontSize='sm' noOfLines={2}>
-                                                {item.description} aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-                                            </Text>
-                                            <Spacer />
-                                            <Box>
-                                                <Text color='yellow'>
-                                                    x{item.amount}
+            <Box align='center'>
+                <Card variant='outline' w={['100%', '75%', '60%']}>
+                    <CardBody align='left' justifyContent>
+                        <VStack divider={<StackDivider />} spacing='4' align='left'>
+                            {
+                                orders.map((item, index) => {
+                                    return (
+                                        <Box>
+                                            <HStack>
+                                                <Heading size='xs' textTransform='uppercase'>
+                                                    {item.name}
+                                                </Heading>
+                                                <Spacer />
+                                                <Text>
+                                                    <Text as='span' color='orange'>Rp{item.price.toLocaleString('id-ID')}</Text>,00
                                                 </Text>
-                                            </Box>
-                                        </HStack>
-                                    </Box>
-                                )
-                            })
-                        }
-                        <Box>
-                            Total: <Text as='span' color='orange'>Rp{(150000).toLocaleString('id-ID')}</Text>,00
-                        </Box>
-                    </VStack>
-                </CardBody>
-            </Card>
-            <Spacer />
+                                            </HStack>
+                                            <HStack align='top'>
+                                                <Text pt='2' fontSize='sm' noOfLines={2}>
+                                                    {item.description}
+                                                </Text>
+                                                <Spacer />
+                                                <Box>
+                                                    <Text color='yellow'>
+                                                        x{item.amount}
+                                                    </Text>
+                                                </Box>
+                                            </HStack>
+                                        </Box>
+                                    )
+                                })
+                            }
+                            <Box>
+                                Total: <Text as='span' color='orange'>Rp{totalPrice.toLocaleString('id-ID')}</Text>,00
+                            </Box>
+                        </VStack>
+                    </CardBody>
+                </Card>
+            </Box>
             <Button position='fixed'
                 bottom='80px'
                 right='16px'
                 zIndex={2}
-                size='lg'
+                size={Settings.sizes.button}
                 colorScheme='green'
             >
                 Selesai Pesan

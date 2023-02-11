@@ -15,7 +15,7 @@ export default function cardHighlight({ item }) {
                 />
                 <Stack spacing='3' p='4'>
                     <Heading size='md'>{item.name}</Heading>
-                    <Text>
+                    <Text noOfLines={3}>
                         {item.description}
                     </Text>
                     <HStack>

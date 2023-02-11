@@ -23,6 +23,7 @@ export default function CardList({ data, index, onOpen, setSelectedItem, setSele
                             maxW={{ sm: '100px', md: '200px', lg: '400px' }}
                             src={imageLink}
                             alt={imageAlt}
+                            maxH={['150px']}
                         />
                         <Box minW='160px' display='flex' mt='2' alignItems='center' px='8px'> {/*pb='8px'*/}
                             {/*Array(5)
@@ -43,7 +44,7 @@ export default function CardList({ data, index, onOpen, setSelectedItem, setSele
                         <VStack align='left' h='100%'>
                             <CardBody p='3px'>
                                 <Heading size='md'>{name}</Heading>
-                                <Text py='2' noOfLines={3}>
+                                <Text py='2' noOfLines={2}>
                                     {description}
                                 </Text>
                             </CardBody>
