@@ -91,7 +91,7 @@ export default function Details() {
                                             </Text>
                                             <Spacer />
                                             <Box>
-                                                <Text color='orange'>
+                                                <Text color='yellow'>
                                                     x{item.amount}
                                                 </Text>
                                             </Box>

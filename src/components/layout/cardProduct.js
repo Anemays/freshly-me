@@ -19,7 +19,8 @@ export default function CardList({ data, index, onOpen, setSelectedItem, setSele
                         <Image
                             boxSize='100%'
                             objectFit='cover'
-                            maxW={{ base: '100%', sm: '100px' }}
+                            w={{ sm: '100px', md: '200px', lg: '400px' }}
+                            maxW={{ sm: '100px', md: '200px', lg: '400px' }}
                             src={imageLink}
                             alt={imageAlt}
                         />
@@ -52,8 +53,7 @@ export default function CardList({ data, index, onOpen, setSelectedItem, setSele
                                 <Text fontSize='18px' p='6px' color='orange'>
                                     Rp{price.toLocaleString('id-ID')},00
                                 </Text>
-                                <Spacer />
-                                <Text fontSize='18px' p='6px' color='orange'>
+                                <Text fontSize='18px' p='6px' color=''>
                                     x{amount}
                                 </Text>
                                 <Button colorScheme='green' size={Settings.sizes.button} onClick={(e) => { onOpen(); setSelectedItem(index); setSelectedAmount(amount) }}>

@@ -1,4 +1,4 @@
-import CardList from '../../components/layout/cardlist'
+import CardProduct from '../layout/cardProduct'
 import Settings from '../../components/settings'
 
 import { Box, Button, Card, CardBody, CardFooter, Heading, HStack, IconButton, Image, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Spacer, Stack, Text, useColorMode, useColorModeValue, useDisclosure, VStack } from "@chakra-ui/react"
@@ -117,7 +117,7 @@ export default function Catalog() {
                 {
                     data.map((item, index) => {
                         return (
-                            <CardList data={item} index={index} onOpen={onOpen} setSelectedItem={setSelectedItem} setSelectedAmount={setSelectedAmount} />
+                            <CardProduct data={item} index={index} onOpen={onOpen} setSelectedItem={setSelectedItem} setSelectedAmount={setSelectedAmount} />
                         )
                     })
                 }
